@@ -1,0 +1,42 @@
+<div class="card">
+    <div class="card-header">{{ pageTitle }}</div>
+     
+    <div class="table-responsive">
+      <div class="col-md-12">
+    Nro de Escrito:
+      <input
+      type="text"
+      class="form-control"     
+      [(ngModel)]="filterText"      
+    /> 
+  </div>  
+      <table border= "1" class="table">
+        <thead>
+          <tr>           
+            <th>Id</th>
+            <th>Escrito</th>
+            <th>Estado</th>
+            <th>Observaciones</th>
+            <th>Secretaria</th>
+            <th>Fecha</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let content of (contents | filtroEscritos: filterText)">
+            <td>{{ content.id  }}</td> 
+            <td>{{ content.escrito  }}</td>           
+            <td>{{ content.estado }}</td>
+            <td>{{ content.observa }}</td>
+            <td>{{ content.secretaria }}</td>
+            <td>{{ content.fecha }}</td>
+            <td>
+              <a class="badge badge-warning" routerLink="/details/{{ content.escrito }}">
+              Edit
+              </a>             
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

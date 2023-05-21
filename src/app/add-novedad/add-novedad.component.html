@@ -1,0 +1,109 @@
+<div class="col-md-12">
+    <div class="card card-container">
+     <h2>Agregar Novedad</h2>
+      <form
+        *ngIf="!isSuccessful"
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        novalidate
+      >
+        <div class="form-group">
+          <label for="escrito">Escrito</label>
+          <input
+            type="text"
+            class="form-control"
+            name="escrito"
+            [(ngModel)]="form.escrito"
+            required
+            minlength="3"
+            maxlength="20"
+            #escrito="ngModel"
+          />
+          <div class="alert-danger" *ngIf="f.submitted && escrito.invalid">
+            <div *ngIf="escrito.errors.required">Escrito is required</div>
+            <div *ngIf="escrito.errors.minlength">
+              Escrito must be at least 3 characters
+            </div>
+            <div *ngIf="escrito.errors.maxlength">
+              Escrito must be at most 20 characters
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="estado">Estado</label>
+          <input
+            type="text"
+            class="form-control"
+            name="estado"
+            [(ngModel)]="form.estado"
+            required
+            #estado="ngModel"
+          />
+          <div class="alert-danger" *ngIf="f.submitted && estado.invalid">
+            <div *ngIf="estado.errors.required">Estado is required</div>
+            
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="estado">Observacion</label>
+          <input
+            type="text"
+            class="form-control"
+            name="estado"
+            [(ngModel)]="form.observa"
+            required
+            #observa="ngModel"
+          />
+          <div class="alert-danger" *ngIf="f.submitted && observa.invalid">
+            <div *ngIf="observa.errors.required">Observa is requi red</div>
+            
+          </div>
+  
+          <div class="form-group">
+            <label for="secretaria">Secretaria</label>
+            <input
+              type="text"
+              class="form-control"
+              name="secretaria"
+              [(ngModel)]="form.secretaria"
+              required
+              #secretaria="ngModel"
+            />
+            <div class="alert-danger" *ngIf="f.submitted && secretaria.invalid">
+              <div *ngIf="secretaria.errors.required">Secretaria is required</div>
+              
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fecha">Fecha</label>
+            <input
+              type="text"
+              class="form-control"
+              name="fecha"
+              [(ngModel)]="form.fecha"
+              required
+              #fecha="ngModel"
+            />
+            <div class="alert-danger" *ngIf="f.submitted && fecha.invalid">
+              <div *ngIf="fecha.errors.required">Fecha is required</div>
+              
+            </div>
+          </div>
+        </div>
+       
+        <div class="form-group">
+          <button class="btn btn-primary btn-block">Guardar</button>
+        </div>
+  
+        <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+          Ocurrió una falla al guardar!<br />{{ errorMessage }}
+        </div>
+      </form>
+  
+      <div class="alert alert-success" *ngIf="isSuccessful">
+        Su notificación se guardó correctamente!
+      </div>
+    </div>
+  </div>
+  

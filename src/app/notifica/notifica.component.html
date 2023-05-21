@@ -1,0 +1,45 @@
+<div class="col-md-12">
+  <div class="card card-container">
+    <form    
+    name="form"
+    (ngSubmit)="onSubmit()"
+    #f="ngForm"
+    novalidate
+    >
+    <label for="escrito">Escrito</label>
+        <input
+        type="text"
+        class="form-control"
+        name="escrito"
+        [(ngModel)]="form.escrito"
+        required
+        minlength="3"
+        maxlength="20"
+        #escrito="ngModel"
+      />
+      <div class="form-group">
+        <button class="btn btn-primary btn-block">Buscar</button>
+      </div>
+
+      
+    </form>
+
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      Encontramos un escrito!
+    </div>
+    <p>{{ content }}</p>
+
+    
+      
+      <p>Nro de Escrito: {{ escrito1 }}</p> 
+      <p>Estado: {{ estado }} </p>
+      <p>Observaciones: {{ observa }}</p> 
+      <p>Secretaría: {{ secretaria }}</p> 
+      <p>Fecha: {{ fecha }}</p> 
+      
+    
+   
+
+</div>
+</div>
+  

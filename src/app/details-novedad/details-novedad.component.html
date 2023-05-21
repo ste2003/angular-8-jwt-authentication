@@ -1,0 +1,56 @@
+    <div *ngIf="currentNovedad" class="edit-form">
+     <h2>Actualizar Novedad</h2>
+      <form >
+        <div class="form-group">
+          <label for="escrito">Escrito</label>
+          <input
+            type="text"
+            class="form-control"  
+            id="escrito"          
+            [(ngModel)]="currentNovedad.escrito"
+            name="escrito"          />
+        </div>   
+        <div class="form-group">
+          <label for="escrito">Estado</label>
+          <input
+            type="text"
+            class="form-control"  
+            id="estado"          
+            [(ngModel)]="currentNovedad.estado"
+            name="estado"          />
+        </div>  
+        <div class="form-group">
+          <label for="escrito">Observa</label>
+          <input
+            type="text"
+            class="form-control"  
+            id="observa"          
+            [(ngModel)]="currentNovedad.observa"
+            name="observa"          />
+        </div>    
+        <div class="form-group">
+          <label for="escrito">Secretaria</label>
+          <input
+            type="text"
+            class="form-control"  
+            id="secretaria"          
+            [(ngModel)]="currentNovedad.secretaria"
+            name="secretaria"          />
+        </div>  
+        <div class="form-group">
+          <label for="escrito">Fecha</label>
+          <input
+            type="text"
+            class="form-control"  
+            id="fecha"          
+            [(ngModel)]="currentNovedad.fecha"
+            name="fecha"          />
+        </div>  
+        <div class="form-group">
+          <button class="btn btn-primary btn-block">Guardar</button>
+        </div> 
+      </form>
+  
+      
+    </div>
+  
