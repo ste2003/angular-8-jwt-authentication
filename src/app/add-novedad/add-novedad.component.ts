@@ -19,7 +19,7 @@ export class AddNovedadComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log("on submit");
+    console.log("on submit", this.form);
     this.novedadService.register(this.form).subscribe(
       data => {
         console.log(data);

@@ -9,7 +9,7 @@ import { NovedadService } from '../_services/novedad.service';
   styleUrls: ['./details-novedad.component.css']
 })
 export class DetailsNovedadComponent implements OnInit {
-  form: any = {};
+  //form: any = {};
   isSignUpFailed = false;
   errorMessage = '';
   isSuccessful = false;
@@ -54,11 +54,28 @@ export class DetailsNovedadComponent implements OnInit {
           }
     )
   }
+  onSubmit(){
+  
+  }
+  update() {
+    const data = {escrito: this.currentNovedad.escrito,
+        estado: this.currentNovedad.estado,
+        observa: this.currentNovedad.observa,
+        secretaria: this.currentNovedad.secretaria,
+        fecha: this.currentNovedad.fecha
+    };
 
-  onSubmit() {
-    console.log("on submit");
+    console.log("on submit", this.currentNovedad.id, data);
+    this.novedadService.update(this.currentNovedad.id, data).subscribe(
+      data => {
+        console.log("actualizado");
+      },
+      err => {          
+        console.log(err);
+          this.errorMessage = JSON.parse(err.error).message;
+          //this.isFindFailed = true;
+        }
+    )
   }
-  updateNovedad(){
-    
-  }
+  
 }

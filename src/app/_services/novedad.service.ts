@@ -33,6 +33,22 @@ export class NovedadService {
 
     }, httpOptions);
   }
+
+  update(id, notifica): Observable<any> {
+    return this.http.put(NOT_API + id , {
+      escrito: notifica.escrito,
+      estado: notifica.estado,
+      observa: notifica.observa,
+      secretaria: notifica.secretaria,
+      fecha: notifica.fecha
+
+    }, httpOptions);
+  }
+
+  delete(id) {
+    return this.http.delete(NOT_API + id, { responseType: 'text' });
+  }
+
   listar(): Observable<any> {
     return this.http.get(NOT_API+'all', { responseType: 'text' });
   }  

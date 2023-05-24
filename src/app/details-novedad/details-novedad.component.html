@@ -1,6 +1,6 @@
     <div *ngIf="currentNovedad" class="edit-form">
      <h2>Actualizar Novedad</h2>
-      <form >
+      <form  (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for="escrito">Escrito</label>
           <input
@@ -46,11 +46,9 @@
             [(ngModel)]="currentNovedad.fecha"
             name="fecha"          />
         </div>  
-        <div class="form-group">
-          <button class="btn btn-primary btn-block">Guardar</button>
-        </div> 
+        
       </form>
-  
+      <button    (click)="update()"  > Guardar  </button>
       
     </div>
   
